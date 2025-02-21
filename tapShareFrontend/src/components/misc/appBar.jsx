@@ -3,6 +3,12 @@ import SearchCode from "../inputFields/searchCode";
 import { useStore } from "../../utility/store";
 import HistoryIcon from "../../pages/history/components/History-icon";
 
+/**
+ * The navigation bar at the top of the page.
+ * This component displays the logo of TapShare, a search bar when no files are selected,
+ * and a history button at the top right corner of the screen.
+ * @returns {React.ReactElement} The navigation bar component.
+ */
 const AppBar = () => {
   const files = useStore((state) => state.files);
   return (
@@ -28,33 +34,6 @@ const AppBar = () => {
         </a>
         {Array.isArray(files) && files?.length <= 0 && <SearchCode />}
         <div className="absolute top-0 right-0 m-[1rem] flex flex-col justify-center items-center gap-2">
-          {/* <a
-            href="https://github.com/maheshbasnet089/tapShare"
-            className="text-[#efefef] text-sm hover:underline relative"
-            style={{
-              textDecoration: "none",
-              display: "inline-block",
-              width: "24px",
-              height: "24px",
-              borderRadius: "50%",
-              border: "2px solid #efefef",
-              textAlign: "center",
-              lineHeight: "24px",
-            }}
-            target="_blank"
-            title="About"
-          >
-            <span
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)", // Center the content horizontally and vertically
-              }}
-            >
-              &#63; 
-            </span>
-          </a> */}
           <HistoryIcon />
         </div>
       </div>
